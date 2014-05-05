@@ -8,16 +8,18 @@ import java.util.List;
 /**
  * Created by ValentinBlokhin on 5/5/2014.
  */
-public class AnimalJPADaoImpl extends AbstractJPADao {
+public class AnimalJPADaoImpl extends AbstractJPADao<Animal> {
+
+
     @Override
-    public void saveOrUpdate(Object persistence) {
+    public void saveOrUpdate(Animal persistence) {
         beginTransaction();
         entityManager.persist(persistence);
         commit();
     }
 
     @Override
-    public void delete(Object persistence) {
+    public void delete(Animal persistence) {
         beginTransaction();
         entityManager.remove(persistence);
         commit();
@@ -28,6 +30,7 @@ public class AnimalJPADaoImpl extends AbstractJPADao {
         return entityManager.find(Animal.class, id);
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public List getAll(int pageNumber, int pageSize) {
         Query query = entityManager.createQuery("select e from Animal e");
