@@ -1,7 +1,6 @@
 package com.zoo.model.dao.JPA2;
 
 import com.zoo.model.entity.Clazz;
-import com.zoo.model.entity.Genus;
 
 import javax.persistence.Query;
 import java.util.List;

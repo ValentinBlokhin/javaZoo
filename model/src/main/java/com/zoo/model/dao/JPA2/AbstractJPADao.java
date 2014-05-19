@@ -11,10 +11,13 @@ import javax.persistence.Persistence;
  */
 public abstract class AbstractJPADao<T> implements Dao<T> {
 
-    EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("ZooModel");
+    private static String PERSISTENCE_UNIT_NAME = "NewPersistenceUnit";
+
+    EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
     EntityManager entityManager = entityManagerFactory.createEntityManager();
 
     public EntityManager getEntityManager() {
+
         return entityManager;
     }
 

@@ -4,10 +4,9 @@ import javax.persistence.*;
 import java.util.Collection;
 
 /**
- * Created by ValentinBlokhin on 5/5/2014.
+ * Created by ValentinBlokhin on 5/18/2014.
  */
 @Entity
-@Table(name = "genus")
 public class Genus {
     private int id;
     private String name;

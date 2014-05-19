@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core"
+        >
+
+<h:body>
+    <ui:composition template="layout/Layout.xhtml">
+        <ui:define name="content">
+            <div class="content">
+                <div class="content-table">
+
+                    <h:form>
+                        <p:dataTable id="dataTable" var="cages" value="#{cageBean.cageList}" paginator="true" rows="9">
+                            <f:facet name="header">
+                                Animals
+                            </f:facet>
+
+                            <p:column sortBy="#{cages.id}" headerText="Id">
+                                <h:outputText value="#{cages.id}"/>
+                            </p:column>
+                            <p:column sortBy="#{cages.capacity}" headerText="Capacity">
+                                <h:outputText value="#{cages.capacity}"/>
+                            </p:column>
+
+                            <p:column sortBy="#{cages.type}" headerText="Type">
+                                <h:outputText value="#{cages.type}"/>
+                            </p:column>
+
+
+                        </p:dataTable>
+                    </h:form>
+                </div>
+            </div>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>

@@ -3,15 +3,17 @@ package com.zoo.model.entity;
 import javax.persistence.*;
 
 /**
- * Created by ValentinBlokhin on 5/5/2014.
+ * Created by ValentinBlokhin on 5/18/2014.
  */
 @Entity
-@Table(name = "animal")
 public class Animal {
     private int id;
     private String name;
     private String sex;
     private int age;
+    private int cageId;
+    private int classId;
+    private int genusId;
     private Cage cageByCageId;
     private Clazz clazzByClassId;
     private Genus genusByGenusId;
@@ -56,6 +58,36 @@ public class Animal {
         this.age = age;
     }
 
+    @Basic
+    @Column(name = "CAGE_id")
+    public int getCageId() {
+        return cageId;
+    }
+
+    public void setCageId(int cageId) {
+        this.cageId = cageId;
+    }
+
+    @Basic
+    @Column(name = "Class_id")
+    public int getClassId() {
+        return classId;
+    }
+
+    public void setClassId(int classId) {
+        this.classId = classId;
+    }
+
+    @Basic
+    @Column(name = "Genus_id")
+    public int getGenusId() {
+        return genusId;
+    }
+
+    public void setGenusId(int genusId) {
+        this.genusId = genusId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -64,6 +96,9 @@ public class Animal {
         Animal animal = (Animal) o;
 
         if (age != animal.age) return false;
+        if (cageId != animal.cageId) return false;
+        if (classId != animal.classId) return false;
+        if (genusId != animal.genusId) return false;
         if (id != animal.id) return false;
         if (name != null ? !name.equals(animal.name) : animal.name != null) return false;
         if (sex != null ? !sex.equals(animal.sex) : animal.sex != null) return false;
@@ -77,11 +112,14 @@ public class Animal {
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (sex != null ? sex.hashCode() : 0);
         result = 31 * result + age;
+        result = 31 * result + cageId;
+        result = 31 * result + classId;
+        result = 31 * result + genusId;
         return result;
     }
 
     @ManyToOne
-    @JoinColumn(name = "CAGE_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "CAGE_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
     public Cage getCageByCageId() {
         return cageByCageId;
     }
@@ -91,7 +129,7 @@ public class Animal {
     }
 
     @ManyToOne
-    @JoinColumn(name = "Class_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "Class_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
     public Clazz getClazzByClassId() {
         return clazzByClassId;
     }
@@ -101,7 +139,7 @@ public class Animal {
     }
 
     @ManyToOne
-    @JoinColumn(name = "Genus_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "Genus_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
     public Genus getGenusByGenusId() {
         return genusByGenusId;
     }

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core"
+        >
+<body>
+<ui:composition>
+
+    <div class="content">
+        <div class="content-table">
+
+            <h:form>
+                <p:dataTable id="dataTable" var="animals" value="#{animalBean.services}" paginator="true" rows="9">
+                    <f:facet name="header">
+                        Animals
+                    </f:facet>
+
+                    <p:column sortBy="#{animals.id}" headerText="Id">
+                        <h:outputText value="#{animals.id}"/>
+                    </p:column>
+                    <p:column sortBy="#{animals.name}" headerText="Name">
+                        <h:outputText value="#{animals.name}"/>
+                    </p:column>
+
+                    <p:column sortBy="#{animals.age}" headerText="Age">
+                        <h:outputText value="#{animals.age}"/>
+                    </p:column>
+
+                    <p:column sortBy="#{animals.sex}" headerText="Sex">
+                        <h:outputText value="#{animals.sex}"/>
+                    </p:column>
+
+                    <p:column sortBy="#{animals.genusByGenusId}" headerText="Genus">
+                        <h:outputText value="#{animals.genusByGenusId.name}"/>
+                    </p:column>
+
+                    <p:column sortBy="#{animals.cageByCageId}" headerText="Cage type">
+                        <h:outputText value="#{animals.cageByCageId.type}"/>
+                    </p:column>
+
+                    <p:column sortBy="#{animals.clazzByClassId}" headerText="Class">
+                        <h:outputText value="#{animals.clazzByClassId.name}"/>
+                    </p:column>
+
+
+                </p:dataTable>
+            </h:form>
+        </div>
+    </div>
+
+</ui:composition>
+</body>
+</html>

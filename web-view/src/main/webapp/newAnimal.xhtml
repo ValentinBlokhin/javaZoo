@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+        >
+<h:head>
+
+</h:head>
+<h:body>
+    <h:form id="form">
+
+        <p:panel id="panel" header="New Animal" style="margin-bottom:10px;">
+            <p:messages id="messages"/>
+            <h:panelGrid columns="3">
+                <h:outputLabel for="name" value="Name: *"/>
+                <p:inputText id="name"
+                             value="#{animalBean.animal.name}" required="true" label="Name">
+                    <f:validateLength minimum="2"/>
+                </p:inputText>
+                <p:message for="name"/>
+
+                <h:outputLabel for="sex" value="Sex: *"/>
+                <p:selectOneRadio id="sex" value="#{animalBean.animal.sex}" required="true">
+                    <f:selectItems value="#{animalBean.sexArray}"/>
+                </p:selectOneRadio>
+                <p:message for="sex"/>
+
+                <h:outputLabel for="age" value="Age: *"/>
+                <p:inputText id="age"
+                             value="#{animalBean.animal.age}" required="true" label="Age"/>
+                <p:message for="age"/>
+
+                <h:outputLabel for="cage" value="Cage: *"/>
+                <p:selectOneMenu id="cage" value="#{animalBean.animal.cageId}">
+                    <f:selectItems value="#{animalBean.cages}" var="cagesVar" itemLabel="#{cagesVar.type}"
+                                   itemValue="#{cagesVar.id}"/>
+                </p:selectOneMenu>
+                <p:message for="cage"/>
+
+                <h:outputLabel for="clazz" value="Class: *"/>
+                <p:selectOneMenu id="clazz" value="#{animalBean.animal.classId}">
+                    <f:selectItems value="#{animalBean.clazzs}" var="clazz" itemLabel="#{clazz.name}"
+                                   itemValue="#{clazz.id}"/>
+                </p:selectOneMenu>
+                <p:message for="clazz"/>
+
+                <h:outputLabel for="genus" value="Genus: *"/>
+                <p:selectOneMenu id="genus" value="#{animalBean.animal.genusId}">
+                    <f:selectItems value="#{animalBean.genuses}" var="genusVar" itemLabel="#{genusVar.name}"
+                                   itemValue="#{genusVar.id}"/>
+                </p:selectOneMenu>
+                <p:message for="genus"/>
+
+            </h:panelGrid>
+        </p:panel>
+
+        <p:commandButton value="Save" update="display,panel" id="btn"
+                         actionListener="#{animalBean.addAnimal}" styleClass="ui-priority-primary">
+        </p:commandButton>
+
+        <p:panel id="display" header="Information" style="margin-top:10px;">
+            <h:panelGrid columns="2">
+                <h:outputText value="Firstname: "/>
+                <h:outputText value="#{animalBean.animal.name}"/>
+
+                <h:outputText value="Sex: "/>
+                <h:outputText value="#{animalBean.animal.sex}"/>
+
+                <h:outputText value="Age: "/>
+                <h:outputText value="#{animalBean.animal.age}"/>
+
+                <h:outputText value="Cage: *"/>
+                <h:outputText value="#{animalBean.animal.cageId}"/>
+
+                <h:outputText value="Class: *"/>
+                <h:outputText value="#{animalBean.animal.classId}"/>
+
+                <h:outputText value="Genus: *"/>
+                <h:outputText value="#{animalBean.animal.genusId}"/>
+
+
+            </h:panelGrid>
+        </p:panel>
+
+    </h:form>
+</h:body>
+
+
+</html>

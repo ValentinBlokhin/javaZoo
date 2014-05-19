@@ -16,21 +16,21 @@ public class AnimalService implements EntityService<Animal> {
 
     @Override
     public void saveOrUpdate(Animal persistence) {
-
+        dao.saveOrUpdate(persistence);
     }
 
     @Override
     public void delete(Animal persistence) {
-
+        dao.delete(persistence);
     }
 
     @Override
     public Animal get(Integer id) {
-        return null;
+        return dao.get(id);
     }
 
     @Override
     public List<Animal> getAll(int pageNumber, int pageSize) {
-        return null;
+        return dao.getAll(pageNumber, pageSize);
     }
 }

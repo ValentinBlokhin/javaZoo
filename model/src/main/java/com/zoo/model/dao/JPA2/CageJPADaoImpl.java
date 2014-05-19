@@ -29,6 +29,7 @@ public class CageJPADaoImpl extends AbstractJPADao<Cage> {
         return entityManager.find(Cage.class, id);
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public List getAll(int pageNumber, int pageSize) {
         Query query = entityManager.createQuery("select e from Cage e");

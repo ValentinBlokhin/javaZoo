@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+        >
+<body>
+<ui:composition>
+
+    <div class="header">
+        <div class="header-logo">
+            <a href="#"><img src="#{facesContext.externalContext.requestContextPath}/resources/images/logo.png"
+                             alt="logo"/></a>
+        </div>
+        <div class="header-right">
+
+        </div>
+
+        <div class="header-menu">
+            <h:form>
+                <p:tabMenu activeIndex="#{index}">
+                    <p:menuitem value="Animals" url="faces/page1.xhtml" icon="ui-icon-star" ajax="false"/>
+                    <p:menuitem value="Genus" url="faces/Genus.xhtml" icon="ui-icon-search" ajax="false"/>
+                    <p:menuitem value="Documentation" url="/ui/tabMenuDocumentation.jsf" icon="ui-icon-document"/>
+                    <p:menuitem value="Support" url="/ui/tabMenuSupport.jsf" icon="ui-icon-wrench"/>
+                    <p:menuitem value="Social" url="/ui/tabMenuSocial.jsf" icon="ui-icon-person"/>
+                </p:tabMenu>
+            </h:form>
+        </div>
+
+
+    </div>
+
+</ui:composition>
+</body>
+</html>
